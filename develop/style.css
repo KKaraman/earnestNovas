@@ -1,0 +1,17 @@
+.card{
+margin: auto;
+}
+
+
+
+#cardTitle{
+    background-color: lightgreen;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
