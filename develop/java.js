@@ -1,0 +1,1 @@
+<script>$(document).foundation();</script>

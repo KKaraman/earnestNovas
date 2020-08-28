@@ -1,19 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vacation Destination</title>
+    <!-- Local CSS link -->
     <link rel="stylesheet" href="./develop/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <!-- CSS Link for Foundation -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 </head>
+<header>
+    <!-- Navbar -->
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+        <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="top-bar" id="responsive-menu">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">Vacation Destination</li>
+                <li><a href="#0">See Top Destinations</a></li>
+                <li><a href="#0">Reviews</a></li>
+                <li><a href="#0">About Us</a></li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li><input type="search" placeholder="Search"></li>
+                <li><button type="button" class="button">Search</button></li>
+            </ul>
+        </div>
+    </div>
+    <br>
+</header>
 <body>
-    
-    
-
+    <!-- Card for main content -->
+    <div class="row">
+        <div class="column">
+            <div class="card" style="width: 80%;">
+                <div id="cardTitle" class="card-divider">
+                    Let us send you on a trip of a lifetime!
+                </div>
+                <img class="center" src="./assets/Vacaylogo.png" width="300px">
+                <div class="card-section">
+                    <!-- This is the form -->
+                    <form>
+                        <div class="grid-container fluid">
+                            <div class="grid-x grid-padding-x">
+                                <div class="medium-6 cell">
+                                    <label>Select How Far You're Willing to Travel
+                                        <select>
+                                            <option value="Default">Select a Distance</option>
+                                            <option value="25">25 Miles</option>
+                                            <option value="50">50 Miles</option>
+                                            <option value="75">75 Miles</option>
+                                            <option value="100">100 Miles</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                    <div class="medium-6 cell">
+                                        <label>Select an Activity You Would Like to Do
+                                            <select>
+                                                <option value="Default">Select Activity</option>
+                                                <option value="25">Golf</option>
+                                                <option value="50">Rock-Climbing</option>
+                                                <option value="75">Camping</option>
+                                                <option value="100">Swimming</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jquey link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- JS link for foundation -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <!--JS link for local file   -->
     <script src="./develop/java.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-
 </body>
 </html>
