@@ -8,8 +8,7 @@
     <!-- Local CSS link -->
     <link rel="stylesheet" href="./develop/style.css">
     <!-- CSS Link for Foundation -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 </head>
 <header>
     <!-- Navbar -->
@@ -57,12 +56,12 @@
                                 </div>
                                 <div class="medium-6 cell">
                                     <label>Select an Activity You Would Like to Do
-                                        <select>
+                                        <select id="activity">
                                             <option value="Default">Select Activity</option>
-                                            <option value="25">Golf</option>
-                                            <option value="50">Rock-Climbing</option>
-                                            <option value="75">Camping</option>
-                                            <option value="100">Swimming</option>
+                                            <option value="golf">Golf</option>
+                                            <option value="rock_climbing">Rock-Climbing</option>
+                                            <option value="Campgrounds">Camping</option>
+                                            <option value="swimmingpools">Swimming</option>
                                         </select>
                                     </label>
                                 </div>
@@ -78,7 +77,7 @@
                                     </label>
                                 </div>
                                 <div class="medium-12 cell">
-                                <a class="hollow button success expanded">Submit</a>
+                                    <a class="hollow button success expanded" id="submit-btn">Submit</a>
                                 </div>
                             </div>
                         </div>
@@ -88,11 +87,12 @@
         </div>
     </div>
     </div>
+    <div class="card" style="width: 80%;" id="results-container">
+    </div>
     <!-- Jquey link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- JS link for foundation -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <!--JS link for local file   -->
     <script src="./develop/java.js"></script>
 </body>
