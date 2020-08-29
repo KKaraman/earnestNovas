@@ -5,7 +5,7 @@ This is project number 1 for the earnest novas
 
 **USER CRITERIA** 
 
-As a TRAVLER
+As a TRAVELER
 I want destination recommendation based on selected inputs 
 SO that i have a fun trip 
 
