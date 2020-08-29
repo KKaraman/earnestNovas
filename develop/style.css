@@ -1,5 +1,7 @@
 .card{
 margin: auto;
+font-size: 1.5vw;
+
 }
 
 
@@ -8,10 +10,16 @@ margin: auto;
     background-color: lightgreen;
 }
 
+#bio-cards .card {
+    margin: 10px;
+}
+
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+   margin: auto;
+  }
+
+  label{
+      font-size: 1.5vw;
+      color:red;
   }
 
