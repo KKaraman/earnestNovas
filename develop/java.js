@@ -27,9 +27,9 @@ $(document).ready(function() {
             infoWindow = new google.maps.InfoWindow(); // Try HTML5 geolocation.
             directionsRenderer.setMap(map);
             directionsRenderer.setPanel(document.getElementById("right-panel"));
-            const control = document.getElementById("floating-panel");
-            control.style.display = "block";
-            map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+            // const control = document.getElementById("floating-panel");
+            // control.style.display = "block";
+            // map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
     
             const onChangeHandler = function() {
               calculateAndDisplayRoute(directionsService, directionsRenderer);

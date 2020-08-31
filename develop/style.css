@@ -20,7 +20,7 @@ margin: auto;
         
        #map {
         height: 400px;
-        width: 600px;
+        width: 100%;
     }
     /* Optional: Makes the sample page fill the window. */
     
@@ -32,7 +32,7 @@ margin: auto;
     }
 
     #floating-panel {
-        position: absolute;
+        /* position: absolute;
         top: 10px;
         left: 25%;
         z-index: 5;
@@ -42,7 +42,8 @@ margin: auto;
         text-align: center;
         font-family: "Roboto", "sans-serif";
         line-height: 30px;
-        padding-left: 10px;
+        padding-left: 10px; */
+        display: none;
       }
 
       #right-panel {
@@ -65,9 +66,9 @@ margin: auto;
       }
 
       #right-panel {
-        height: 100%;
+        height: auto;
         float: right;
-        width: 390px;
+        width: auto ;
         overflow: auto;
       }
 
