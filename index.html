@@ -31,10 +31,48 @@
 </header>
 
 <body>
+   
+    <!-- display user location on a google map -->
+    <div id="floating-panel">
+        <!-- <strong>Start:</strong> -->
+        <!-- <select id="start">
+          <option value="houston, il">Chicago</option>
+          <option value="st louis, mo">St Louis</option>
+          <option value="joplin, mo">Joplin, MO</option>
+          <option value="oklahoma city, ok">Oklahoma City</option>
+          <option value="amarillo, tx">Amarillo</option>
+          <option value="gallup, nm">Gallup, NM</option>
+          <option value="flagstaff, az">Flagstaff, AZ</option>
+          <option value="winona, az">Winona</option>
+          <option value="kingman, az">Kingman</option>
+          <option value="barstow, ca">Barstow</option>
+          <option value="san bernardino, ca">San Bernardino</option>
+          <option value="los angeles, ca">Los Angeles</option>
+        </select>
+        <br />
+        <strong>End:</strong>
+        <select id="end">
+          <option value="chicago, il">Chicago</option>
+          <option value="st louis, mo">St Louis</option>
+          <option value="joplin, mo">Joplin, MO</option>
+          <option value="oklahoma city, ok">Oklahoma City</option>
+          <option value="amarillo, tx">Amarillo</option>
+          <option value="gallup, nm">Gallup, NM</option>
+          <option value="flagstaff, az">Flagstaff, AZ</option>
+          <option value="winona, az">Winona</option>
+          <option value="kingman, az">Kingman</option>
+          <option value="barstow, ca">Barstow</option>
+          <option value="san bernardino, ca">San Bernardino</option>
+          <option value="los angeles, ca">Los Angeles</option>
+          <option value="university of texas in AUstin">Austin</option>
+        </select> -->
+      </div>
+      <div id="right-panel"></div>
+      <div id="map"></div> 
     <!-- Card for main content -->
-    <div class="row">
+    <div class="row" >
         <div class="column">
-            <div class="card" style="width: 80%;">
+            <div class="card" style="width: 80%; ">
                 <div id="cardTitle" class="card-divider">
                     Let us send you on a trip of a lifetime!
                 </div>
@@ -79,20 +117,30 @@
                                 </div>
                                 <div class="medium-12 cell">
                                 <a class="hollow button success expanded">Submit</a>
+                                <div id="choiceButton">
+                                    <button>This is your activity section button</button>
                                 </div>
+                                
+                                
                             </div>
+                            
                         </div>
                 </div>
                 </form>
             </div>
         </div>
     </div>
-    </div>
+    
+   
+    
     <!-- Jquey link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- JS link for foundation -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <!-- scripts from the google geolocation file -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWsOKBI - pECqQopasIY2OCrNdzYzUItTE&callback=initMap&libraries=&v=weekly" defer></script>
     <!--JS link for local file   -->
     <script src="./develop/java.js"></script>
 </body>
