@@ -22,66 +22,62 @@
                 <li class="menu-text">Vacation Destination</li>
                 <li><a href="#0">See Top Destinations</a></li>
                 <li><a href="#0">Reviews</a></li>
-                <li><a href="./develop/about.html">About Us</a></li>
+                <li><a href="./about.html">About Us</a></li>
             </ul>
         </div>
     </div>
     <br>
 </header>
-
 <body>
     <!-- Card for main content -->
-    <div class="row">
-        <div class="column">
-            <div class="card" style="width: 80%;">
-                <div id="cardTitle" class="card-divider">
-                    Let us send you on a trip of a lifetime!
-                </div>
-                <img class="center" src="./assets/Vacaylogo.png" width="300px">
-                <div class="card-section">
-                    <!-- This is the form -->
-                    <form>
-                        <div class="grid-container fluid">
-                            <div class="grid-x grid-padding-x">
-                                <div class="medium-6 cell">
-                                    <label>Select How Far You're Willing to Travel
-                                        <select id="distance">
-                                            <option value="Default">Select a Distance</option>
-                                            <option value="25">25 Miles</option>
-                                            <option value="50">50 Miles</option>
-                                            <option value="75">75 Miles</option>
-                                            <option value="100">100 Miles</option>
-                                        </select>
-                                    </label>
-                                </div>
-                                <div class="medium-6 cell">
-                                    <label>Select an Activity You Would Like to Do
-                                        <select id="activity">
-                                            <option value="Default">Select Activity</option>
+
+    <div class="grid-container fluid">
+        <div class="card" style="width: 50%">
+            <div id="cardTitle" class="card-divider">
+                <h4 id="searchCardTitle">Let us send you on a trip of a lifetime!</h4>
+            </div>
+            <img class="center" src="./assets/Vacaylogo.png" width="300px">
+            <div class="card-section">
+                <!-- This is the form -->
+                <form>
+                    <div class="grid-x grid-padding-x">
+                        <div class="medium-4 cell">
+                            <label>Select How Far You're Willing to Travel
+                                <select>
+                                    <option value="Default">Select a Distance</option>
+                                    <option value="25">25 Miles</option>
+                                    <option value="50">50 Miles</option>
+                                    <option value="75">75 Miles</option>
+                                    <option value="100">100 Miles</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div id="dropdown" class="medium-4 cell">
+                            <label>Select an Activity You Would Like to Do
+                                <select>
+                                    <option value="Default">Select Activity</option>
                                             <option value="golf">Golf</option>
                                             <option value="rock_climbing">Rock-Climbing</option>
                                             <option value="Campgrounds">Camping</option>
                                             <option value="swimmingpools">Swimming</option>
-                                        </select>
-                                    </label>
-                                </div>
-                                <div class="medium-6 cell center">
-                                    <label>How long would you like to go?
-                                        <select>
-                                            <option value="Default">Select Duration</option>
-                                            <option value="3">3 Days</option>
-                                            <option value="5">5 Days</option>
-                                            <option value="10">10 Days</option>
-                                            <option value="15">15 Days</option>
-                                        </select>
-                                    </label>
-                                </div>
-                                <div class="medium-12 cell">
-                                    <a class="hollow button success expanded" id="submit-btn">Submit</a>
-                                </div>
-                            </div>
+                                </select>
+                            </label>
                         </div>
-                </div>
+                        <div class="medium-4 cell center">
+                            <label>How long would you like to go?
+                                <select>
+                                    <option value="Default">Select Duration</option>
+                                    <option value="3">3 Days</option>
+                                    <option value="5">5 Days</option>
+                                    <option value="10">10 Days</option>
+                                    <option value="15">15 Days</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="medium-12 cell">
+                            <a class="hollow button success expanded">Submit</a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -89,6 +85,7 @@
     </div>
     <div style="width: 80%;" id="results-container">
     </div>
+
     <!-- Jquey link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- JS link for foundation -->
