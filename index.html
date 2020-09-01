@@ -30,6 +30,16 @@
 </header>
 
 <body>
+
+    <!-- display user location on a google map -->
+    <div class="row" >
+        <div class="column">
+            <div id="map"></div> 
+        </div>
+        <div class="column">
+            <div id="right-panel"></div>
+        </div>
+    </div>  
     <!-- Card for main content -->
 
     <div class="grid-container fluid">
@@ -78,6 +88,9 @@
                         <div class="medium-12 cell">
                             <a class="hollow button success expanded" id="submit-btn">Submit</a>
                         </div>
+                        <div id="choiceButton">
+                            <button>This is your activity section button</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -91,7 +104,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- JS link for foundation -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-    <!--JS link for local file   -->
+     <!-- scripts from the google geolocation file -->
+     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWsOKBI - pECqQopasIY2OCrNdzYzUItTE&callback=initMap&libraries=&v=weekly" defer></script>
+     <!--JS link for local file   -->
     <script src="./develop/java.js"></script>
 </body>
 
