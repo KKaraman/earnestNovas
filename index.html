@@ -28,6 +28,7 @@
     </div>
     <br>
 </header>
+
 <body>
     <!-- Card for main content -->
 
@@ -43,7 +44,7 @@
                     <div class="grid-x grid-padding-x">
                         <div class="medium-4 cell">
                             <label>Select How Far You're Willing to Travel
-                                <select>
+                                <select id="distance">
                                     <option value="Default">Select a Distance</option>
                                     <option value="25">25 Miles</option>
                                     <option value="50">50 Miles</option>
@@ -54,7 +55,7 @@
                         </div>
                         <div id="dropdown" class="medium-4 cell">
                             <label>Select an Activity You Would Like to Do
-                                <select>
+                                <select id="activity">
                                     <option value="Default">Select Activity</option>
                                             <option value="golf">Golf</option>
                                             <option value="rock_climbing">Rock-Climbing</option>
@@ -75,7 +76,7 @@
                             </label>
                         </div>
                         <div class="medium-12 cell">
-                            <a class="hollow button success expanded">Submit</a>
+                            <a class="hollow button success expanded" id="submit-btn">Submit</a>
                         </div>
                     </div>
                 </form>
