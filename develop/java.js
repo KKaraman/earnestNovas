@@ -5,20 +5,44 @@ console.log("running");
 let map, infoWindow;
 
 var userLocation = [
-    {lat : 0},
-    {long : 0},
+    { lat: 0 },
+    { long: 0 },
+];
+
+var end = [
+    { lat: 0 },
+    { long: 0 },
 ];
 
 var endLocation = [
-    {lat: 0},
-    {long: 0},
-]; 
+    {
+        lat: 0,
+        long: 0
+    },
+    {
+        lat: 1,
+        long: 1
+    },
+    {
+        lat: 2,
+        long: 2
+    }
+    , {
+        lat: 3,
+        long: 3
+    },
+    {
+        lat: 4,
+        long: 4
+    }];
+
+
 
 //initMap();
 
 function initMap() {
-  
-console.log("running init");
+
+    console.log("running init");
     const directionsRenderer = new google.maps.DirectionsRenderer();
     const directionsService = new google.maps.DirectionsService();
     map = new google.maps.Map(document.getElementById("map"), {
@@ -35,8 +59,8 @@ console.log("running init");
     // control.style.display = "block";
     // map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
 
-    const onChangeHandler = function() {
-      calculateAndDisplayRoute(directionsService, directionsRenderer);
+    const onChangeHandler = function () {
+        calculateAndDisplayRoute(directionsService, directionsRenderer);
     };
 
     // document
@@ -46,13 +70,48 @@ console.log("running init");
     // //   .getElementById("end")
     //   .addEventListener("change", onChangeHandler);
 
-    $(document).on("click", "#choiceButton", function(event) {
+    // This is setting a unique id for each button that shows directions. 
+
+    $(document).on("click", "#choiceButton0", function (event) {
         event.preventDefault();
+        end.lat= endLocation[0].lat;
+        end.long= endLocation[0].long;
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
     })
-
+    $(document).on("click", "#choiceButton1", function (event) {
+        event.preventDefault();
+        end.lat= endLocation[1].lat;
+        end.long= endLocation[1].long;
+        console.log("Choice button clicked");
+        // calculateAndDisplayRoute(directionsService, directionsRenderer);
+        onChangeHandler();
+    })
+    $(document).on("click", "#choiceButton2", function (event) {
+        event.preventDefault();
+        end.lat= endLocation[2].lat;
+        end.long= endLocation[2].long;
+        console.log("Choice button clicked");
+        // calculateAndDisplayRoute(directionsService, directionsRenderer);
+        onChangeHandler();
+    })
+    $(document).on("click", "#choiceButton3", function (event) {
+        event.preventDefault();
+        end.lat= endLocation[3].lat;
+        end.long= endLocation[3].long;
+        console.log("Choice button clicked");
+        // calculateAndDisplayRoute(directionsService, directionsRenderer);
+        onChangeHandler();
+    })
+    $(document).on("click", "#choiceButton4", function (event) {
+        event.preventDefault();
+        end.lat= endLocation[4].lat;
+        end.long= endLocation[4].long;
+        console.log("Choice button clicked");
+        // calculateAndDisplayRoute(directionsService, directionsRenderer);
+        onChangeHandler();
+    })
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position => {
@@ -69,7 +128,7 @@ console.log("running init");
                 infoWindow.setContent("You are here");
                 infoWindow.open(map);
                 map.setCenter(pos);
-                
+
                 //insert directions
 
             },
@@ -89,42 +148,44 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(
         browserHasGeolocation ?
-        "Error: The Geolocation service failed." :
-        "Error: Your browser doesn't support geolocation."
+            "Error: The Geolocation service failed." :
+            "Error: Your browser doesn't support geolocation."
     );
     infoWindow.open(map);
 }
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     // const start = document.getElementById("start").value;
-    const start = userLocation.lat+","+userLocation.long;
-    
-    
-   
-    // const end = document.getElementById("end").value;
-    var end = endLocation.lat+","+ endLocation.long;
-    // alert(document.getElementById("end").value);
-    
-console.log("running CAD");
-   
-    directionsService.route(
-      {
-        // origin: start,
-        origin: start,
-        destination: end,
-        travelMode: google.maps.TravelMode.DRIVING
-      },
-      (response, status) => {
-        if (status === "OK") {
-          directionsRenderer.setDirections(response);
-        } else {
-          window.alert("Directions request failed due to " + status);
-        }
-      }
-    );
-  }
+    const start = userLocation.lat + "," + userLocation.long;
 
-$(document).ready(function() {
+
+
+    // const end = document.getElementById("end").value;
+    let finish = end.lat + "," + end.long;
+    // alert(document.getElementById("end").value);
+
+    console.log("running CAD");
+
+    directionsService.route(
+        {
+            // origin: start,
+            origin: start,
+            destination: finish,
+            travelMode: google.maps.TravelMode.DRIVING
+        },
+        (response, status) => {
+            if (status === "OK") {
+                directionsRenderer.setDirections(response);
+            } else {
+                window.alert("Directions request failed due to " + status);
+            }
+        }
+    );
+
+}
+
+
+$(document).ready(function () {
 
     var yelpToken = `9Ne2ihRPJ8cQ2d861NnTtiS8Zi6HfYG8OWhoJJVU5FjHVlcmLqcWu15TtVz3Cr2uZYI0VeSH6KOkr_6IkvOMC8kqwB8O3sKn4v3Ph9nG-iM6BrNaIXOoGUmYcbBFX3Yx`;
     var corsProxy = 'https://cors-anywhere.herokuapp.com/';
@@ -140,7 +201,7 @@ $(document).ready(function() {
 
 
     // event listener for the submit button
-    $('#submit-btn').on('click', function() {
+    $('#submit-btn').on('click', function () {
         yelpCategory = $('#activity').val();
         geoRadiusMiles = $('#distance').val();
 
@@ -161,7 +222,7 @@ $(document).ready(function() {
                 "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
                 "x-rapidapi-key": "b03379d354msh5b83b89eb078c59p12584ajsn5b67c822900b"
             }
-        }).then(function(obj) {
+        }).then(function (obj) {
             var len = obj.data.length - 1;
             var randmonIndex = Math.floor(Math.random() * (len - 1) + 1);
 
@@ -177,13 +238,13 @@ $(document).ready(function() {
                 url: yelpURL,
                 method: "GET",
                 headers: { "Authorization": 'Bearer ' + yelpToken }
-            }).then(function(yelpObj) {
+            }).then(function (yelpObj) {
                 console.log("<----------Yelp--------->");
                 console.log(yelpObj);
                 var busArray = yelpObj.businesses;
                 displayYelpData(busArray);
-                
-                
+
+
             });
 
 
@@ -195,20 +256,19 @@ $(document).ready(function() {
 
 
 
-    // get the array returned from the yelp api passed to this fuction, then loops through it
+    // get the array returned from the yelp api passed to this function, then loops through it
     function displayYelpData(array) {
+        var i = 0;
         $('#results-container').html("");
-        array.forEach(function(item) {
+        array.forEach(function (item) {
             // console.log(item);
             var busName = item.name;
             var busImageURL = item.image_url;
-            var lat = item.coordinates.latitude;
-            var long = item.coordinates.longitude;
+            endLocation[i].lat = item.coordinates.latitude;
+            endLocation[i].long = item.coordinates.longitude;
             var busPhone = item.display_phone;
             var displayAddress = formatAddress(item.location.display_address);
-            console.log(long)
-            console.log(lat)
-
+            console.log(i);
             var clodeBlock = `
         <div class="card" style="width: 80%;" >
             <div class="card-section">
@@ -217,11 +277,15 @@ $(document).ready(function() {
         <h6>${busPhone}</h6>
         <div class="card-image">
         <img src="${busImageURL}">
+        <div id="choiceButton${i}">
+        <a class="button success expanded">Show Directions</a>
+        </div>
         </div>
         </div>
         </div>`;
 
             $('#results-container').append(clodeBlock);
+            i++;
 
         });
 
@@ -232,7 +296,7 @@ $(document).ready(function() {
     function formatAddress(addressArray) {
         console.log(addressArray);
         var address = "";
-        addressArray.forEach(function(item) {
+        addressArray.forEach(function (item) {
             address = address + " " + item;
 
         });
