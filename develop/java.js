@@ -198,12 +198,16 @@ $(document).ready(function() {
     $('#submit-btn').on('click', function() {
         yelpCategory = $('#activity').val();
         geoRadiusMiles = $('#distance').val();
+        // This hides the card after it is clicked
+        $("#mainCard").hide(1000);
+        alert("Click 'home' to search again")
 
         //  check if either of the boxes are un selected. 
         if (yelpCategory === "Default" || geoRadiusMiles === "Default") {
 
-            console.log("SELECT SOMETHING");
+            alert("Please make a selection");
         } else { getGeoData(yelpCategory, geoRadiusMiles); }
+
     });
 
 
@@ -265,13 +269,14 @@ $(document).ready(function() {
             var displayAddress = formatAddress(item.location.display_address);
             console.log(i);
             var clodeBlock = `
+            <h2 id="h2Res">Results</h2>
         <div class="card" style="width: 80%;" >
             <div class="card-section">
         <div class="card-divider"><h3>${busName}</h3></div>
         <h6>${displayAddress}</h6>
         <h6>${busPhone}</h6>
         <div class="card-image">
-        <img src="${busImageURL}">
+        <img src="${busImageURL}" class="resImage">
         <div id="choiceButton${i}">
         <a class="button success expanded">Show Directions</a>
         </div>

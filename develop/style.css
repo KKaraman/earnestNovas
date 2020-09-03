@@ -28,6 +28,26 @@ margin: auto;
     color: black;
   }
 
+  .resImage{
+    height: 80%;
+    width: 60%;
+
+  }
+
+  #h2Map{
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  #h2Res{
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  #h2Weather{
+    text-align: center;
+    text-decoration: underline;
+  }
 
  /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -37,10 +57,7 @@ margin: auto;
         width: 100%;
     }
 
-    #mapDiv{
-      margin: auto;
-
-    }
+ 
     /* Optional: Makes the sample page fill the window. */
     
     html,
@@ -86,13 +103,7 @@ margin: auto;
 
       #right-panel {
         height: auto;
-        float: right;
         width: auto ;
-        overflow: auto;
-      }
-
-      #map {
-        margin-right: 400px;
       }
 
       #floating-panel {
