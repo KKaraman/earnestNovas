@@ -9,6 +9,11 @@ var userLocation = [
     {long : 0},
 ];
 
+var endLocation = [
+    {lat: 0},
+    {long: 0},
+]; 
+
 //initMap();
 
 function initMap() {
@@ -93,9 +98,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     // const start = document.getElementById("start").value;
     const start = userLocation.lat+","+userLocation.long;
+    
+    
    
     // const end = document.getElementById("end").value;
-    const end = "Austin,tx";
+    var end = endLocation.lat+","+ endLocation.long;
     // alert(document.getElementById("end").value);
     
 console.log("running CAD");
@@ -175,6 +182,8 @@ $(document).ready(function() {
                 console.log(yelpObj);
                 var busArray = yelpObj.businesses;
                 displayYelpData(busArray);
+                
+                
             });
 
 
@@ -197,6 +206,8 @@ $(document).ready(function() {
             var long = item.coordinates.longitude;
             var busPhone = item.display_phone;
             var displayAddress = formatAddress(item.location.display_address);
+            console.log(long)
+            console.log(lat)
 
             var clodeBlock = `
         <div class="card" style="width: 80%;" >
