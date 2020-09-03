@@ -1,4 +1,3 @@
-
 $(document).foundation();
 
 console.log("running");
@@ -14,8 +13,7 @@ var end = [
     { long: 0 },
 ];
 
-var endLocation = [
-    {
+var endLocation = [{
         lat: 0,
         long: 0
     },
@@ -26,15 +24,15 @@ var endLocation = [
     {
         lat: 2,
         long: 2
-    }
-    , {
+    }, {
         lat: 3,
         long: 3
     },
     {
         lat: 4,
         long: 4
-    }];
+    }
+];
 
 
 
@@ -59,7 +57,7 @@ function initMap() {
     // control.style.display = "block";
     // map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
 
-    const onChangeHandler = function () {
+    const onChangeHandler = function() {
         calculateAndDisplayRoute(directionsService, directionsRenderer);
     };
 
@@ -72,42 +70,42 @@ function initMap() {
 
     // This is setting a unique id for each button that shows directions. 
 
-    $(document).on("click", "#choiceButton0", function (event) {
+    $(document).on("click", "#choiceButton0", function(event) {
         event.preventDefault();
-        end.lat= endLocation[0].lat;
-        end.long= endLocation[0].long;
+        end.lat = endLocation[0].lat;
+        end.long = endLocation[0].long;
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
     })
-    $(document).on("click", "#choiceButton1", function (event) {
+    $(document).on("click", "#choiceButton1", function(event) {
         event.preventDefault();
-        end.lat= endLocation[1].lat;
-        end.long= endLocation[1].long;
+        end.lat = endLocation[1].lat;
+        end.long = endLocation[1].long;
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
     })
-    $(document).on("click", "#choiceButton2", function (event) {
+    $(document).on("click", "#choiceButton2", function(event) {
         event.preventDefault();
-        end.lat= endLocation[2].lat;
-        end.long= endLocation[2].long;
+        end.lat = endLocation[2].lat;
+        end.long = endLocation[2].long;
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
     })
-    $(document).on("click", "#choiceButton3", function (event) {
+    $(document).on("click", "#choiceButton3", function(event) {
         event.preventDefault();
-        end.lat= endLocation[3].lat;
-        end.long= endLocation[3].long;
+        end.lat = endLocation[3].lat;
+        end.long = endLocation[3].long;
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
     })
-    $(document).on("click", "#choiceButton4", function (event) {
+    $(document).on("click", "#choiceButton4", function(event) {
         event.preventDefault();
-        end.lat= endLocation[4].lat;
-        end.long= endLocation[4].long;
+        end.lat = endLocation[4].lat;
+        end.long = endLocation[4].long;
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
@@ -148,8 +146,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(
         browserHasGeolocation ?
-            "Error: The Geolocation service failed." :
-            "Error: Your browser doesn't support geolocation."
+        "Error: The Geolocation service failed." :
+        "Error: Your browser doesn't support geolocation."
     );
     infoWindow.open(map);
 }
@@ -166,8 +164,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
     console.log("running CAD");
 
-    directionsService.route(
-        {
+    directionsService.route({
             // origin: start,
             origin: start,
             destination: finish,
@@ -185,14 +182,11 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 }
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     var yelpToken = `9Ne2ihRPJ8cQ2d861NnTtiS8Zi6HfYG8OWhoJJVU5FjHVlcmLqcWu15TtVz3Cr2uZYI0VeSH6KOkr_6IkvOMC8kqwB8O3sKn4v3Ph9nG-iM6BrNaIXOoGUmYcbBFX3Yx`;
     var corsProxy = 'https://cors-anywhere.herokuapp.com/';
     var yelpCategory = '';
-    var yelpLocation = 'houston';
-    var startingLong = -95.3698;
-    var startingLat = 29.7604;
     var yelpURL = "";
     var yelpLimit = 5;
     var geoResultsLimit = 10;
@@ -201,7 +195,7 @@ $(document).ready(function () {
 
 
     // event listener for the submit button
-    $('#submit-btn').on('click', function () {
+    $('#submit-btn').on('click', function() {
         yelpCategory = $('#activity').val();
         geoRadiusMiles = $('#distance').val();
 
@@ -216,13 +210,14 @@ $(document).ready(function () {
     // function to get cities / areas within a radius
     function getGeoData(yelpCategory, geoRadiusMiles) {
         $.ajax({
-            url: `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/${startingLat}${startingLong}/nearbyCities?limit=${geoResultsLimit}&minPopulation=${geoMinPopulation}&radius=${geoRadiusMiles}`,
+            url: `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/${userLocation.lat}${userLocation.long}/nearbyCities?limit=${geoResultsLimit}&minPopulation=${geoMinPopulation}&radius=${geoRadiusMiles}`,
             method: "GET",
             "headers": {
                 "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
                 "x-rapidapi-key": "b03379d354msh5b83b89eb078c59p12584ajsn5b67c822900b"
             }
-        }).then(function (obj) {
+        }).then(function(obj) {
+
             var len = obj.data.length - 1;
             var randmonIndex = Math.floor(Math.random() * (len - 1) + 1);
 
@@ -238,7 +233,7 @@ $(document).ready(function () {
                 url: yelpURL,
                 method: "GET",
                 headers: { "Authorization": 'Bearer ' + yelpToken }
-            }).then(function (yelpObj) {
+            }).then(function(yelpObj) {
                 console.log("<----------Yelp--------->");
                 console.log(yelpObj);
                 var busArray = yelpObj.businesses;
@@ -260,7 +255,7 @@ $(document).ready(function () {
     function displayYelpData(array) {
         var i = 0;
         $('#results-container').html("");
-        array.forEach(function (item) {
+        array.forEach(function(item) {
             // console.log(item);
             var busName = item.name;
             var busImageURL = item.image_url;
@@ -296,7 +291,7 @@ $(document).ready(function () {
     function formatAddress(addressArray) {
         console.log(addressArray);
         var address = "";
-        addressArray.forEach(function (item) {
+        addressArray.forEach(function(item) {
             address = address + " " + item;
 
         });
