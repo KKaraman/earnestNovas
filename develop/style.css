@@ -53,8 +53,9 @@ margin: auto;
        * element that contains the map. */
         
        #map {
-        height: 400px;
-        width: 100%;
+        height: 350px;
+        width: 350px;
+        margin: auto;
     }
 
  

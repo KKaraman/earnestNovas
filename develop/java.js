@@ -269,7 +269,7 @@ $(document).ready(function() {
             var displayAddress = formatAddress(item.location.display_address);
             console.log(i);
             var clodeBlock = `
-            <h2 id="h2Res">Results</h2>
+            
         <div class="card" style="width: 80%;" >
             <div class="card-section">
         <div class="card-divider"><h3>${busName}</h3></div>
@@ -282,11 +282,11 @@ $(document).ready(function() {
         </div>
         </div>
         </div>
-        </div>`;
+        </div>
+        `;
 
             $('#results-container').append(clodeBlock);
             i++;
-
         });
 
     }
