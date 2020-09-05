@@ -2,7 +2,7 @@ $(document).foundation();
 
 console.log("running");
 let map, infoWindow;
-
+var tripDuration = 0;
 var userLocation = [
     { lat: 0 },
     { long: 0 },
@@ -77,6 +77,8 @@ function initMap() {
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
+        // get weather data
+        getWeather(end.lat, end.long, tripDuration);
     })
     $(document).on("click", "#choiceButton1", function(event) {
         event.preventDefault();
@@ -93,6 +95,7 @@ function initMap() {
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
+        getWeather(end.lat, end.long, tripDuration);
     })
     $(document).on("click", "#choiceButton3", function(event) {
         event.preventDefault();
@@ -101,6 +104,7 @@ function initMap() {
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
+        getWeather(end.lat, end.long, tripDuration);
     })
     $(document).on("click", "#choiceButton4", function(event) {
         event.preventDefault();
@@ -109,6 +113,7 @@ function initMap() {
         console.log("Choice button clicked");
         // calculateAndDisplayRoute(directionsService, directionsRenderer);
         onChangeHandler();
+        getWeather(end.lat, end.long, tripDuration);
     })
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -181,6 +186,52 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
 }
 
+function getWeather(lat, long, duration) {
+    var weatherApiKey = "d0d9d3b010a05ae1f870f8930e0e0a10";
+    var weatherExcludeList = "minutely,hourly";
+    console.log("duration selected: " + duration);
+    var oneCallWeatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=${weatherExcludeList}&units=imperial&appid=${weatherApiKey}`;
+    $.ajax({
+        url: oneCallWeatherURL,
+        method: "GET"
+    }).then(function(weatherObj) {
+        displayWeather(weatherObj.daily);
+
+    });
+
+    function displayWeather(weatherArray) {
+        $('#weather').html(` <h2 id="h2Weather">
+        Weather
+    </h2>`);
+
+        for (i = 0; i < tripDuration; i++) {
+            console.log(weatherArray[i]);
+            var dtObj = moment.unix(weatherArray[i].dt);
+            var dtStr = dtObj.format("dddd MMMM Do");
+            // console.log("THIS DATE: " + dtStr);
+            var temp = weatherArray[i].temp.day;
+            var humidity = weatherArray[i].humidity;
+            var weatherDescription = weatherArray[i].weather[0].description;
+            weatherDescription = weatherDescription.toUpperCase();
+            var iconURL = `http://openweathermap.org/img/w/${weatherArray[i].weather[0].icon}.png`;
+
+            var htmlBlock = `
+            <div class="card" style="width: 80%;" >
+            <div class="card-section">
+            <div class="card-divider"><h5>${dtStr}</h5></div>
+            <h6>${weatherDescription}</h6>
+            <img src="${iconURL}" class="thumbnail">
+            <h6><span class="label secondary">Tempature: ${temp} </span></h6>
+            <h6><span class="label secondary">Humidity: ${humidity} </span></h6>
+            </div>
+            </div>
+            `
+            $('#weather').append(htmlBlock);
+        }
+
+    }
+}
+
 
 $(document).ready(function() {
 
@@ -192,15 +243,16 @@ $(document).ready(function() {
     var geoResultsLimit = 10;
     var geoMinPopulation = 50000;
     var geoRadiusMiles;
-
+    // these are excluded from the open weather API call
 
     // event listener for the submit button
     $('#submit-btn').on('click', function() {
         yelpCategory = $('#activity').val();
         geoRadiusMiles = $('#distance').val();
+        tripDuration = $('#duration').val();
         // This hides the card after it is clicked
         $("#mainCard").hide(1000);
-        alert("Click 'home' to search again")
+        // alert("Click 'home' to search again")
 
         //  check if either of the boxes are un selected. 
         if (yelpCategory === "Default" || geoRadiusMiles === "Default") {
@@ -267,7 +319,8 @@ $(document).ready(function() {
             endLocation[i].long = item.coordinates.longitude;
             var busPhone = item.display_phone;
             var displayAddress = formatAddress(item.location.display_address);
-            console.log(i);
+            // console.log(i);
+            var website = item.url
             var clodeBlock = `
             
         <div class="card" style="width: 80%;" >
@@ -276,7 +329,9 @@ $(document).ready(function() {
         <h6>${displayAddress}</h6>
         <h6>${busPhone}</h6>
         <div class="card-image">
-        <img src="${busImageURL}" class="resImage">
+        <img src="${busImageURL}" class="thumbnail">
+        <a href="${website}" target="_blank"><span class="label">WEBSITE</span></a>
+        <hr>
         <div id="choiceButton${i}">
         <a class="button success expanded">Show Directions</a>
         </div>
@@ -303,6 +358,7 @@ $(document).ready(function() {
         return address;
         console.log(address);
     }
+
 
 
 });
